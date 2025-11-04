@@ -1,0 +1,80 @@
+{
+    "开始限定商店购买": {
+        "recognition": "OCR",
+        "expected": "我的主页",
+        "action": "Click",
+        "next": [
+            "点击商店"
+        ]
+    },
+    "点击商店": {
+        "recognition": "OCR",
+        "expected": "商店",
+        "action": "Click",
+        "next": [
+            "识别限定商店1"
+        ]
+    },
+    "识别限定商店1": {
+        "recognition": "OCR",
+        "expected": "限定",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "退出限定商店",
+            "点击全选"
+        ]
+    },
+    "点击全选": {
+        "recognition": "OCR",
+        "expected": "全选",
+        "action": "Click",
+        "next": [
+            "商店全选购买"
+        ]
+    },
+    "商店全选购买": {
+        "recognition": "OCR",
+        "expected": "批量购入",
+        "action": "Click",
+        "next": [
+            "购买确认"
+        ]
+    },
+    "购买确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "next": [
+            "购买完毕"
+        ]
+    },
+    "购买完毕": {
+        "recognition": "OCR",
+        "expected": "购买完毕",
+        "action": "Click",
+        "next": [
+            "再确认"
+        ]
+    },
+    "再确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "next": [
+            "识别主页"
+        ]
+    },
+    "退出限定商店": {
+        "recognition": "OCR",
+        "post_delay": 4000,
+        "roi": [
+            759,
+            617,
+            60,
+            29
+        ],
+        "expected": "取消",
+        "action": "Click"
+    }
+}

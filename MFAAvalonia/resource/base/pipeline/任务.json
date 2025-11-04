@@ -1,0 +1,178 @@
+{
+    "开始任务领取": {
+        "post_delay": 1000,
+        "next": [
+            "识别任务"
+        ],
+        "interrupt": [
+            "识别主页"
+        ]
+    },
+    "识别任务": {
+        "recognition": "FeatureMatch",
+        "template": "任务图.png",
+        "roi": [
+            706,
+            521,
+            573,
+            110
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "识别红点",
+            "退出任务"
+        ]
+    },
+    "识别活动任务退出": {
+        "recognition": "OCR",
+        "expected": "活动",
+        "roi": [
+            81,
+            8,
+            146,
+            54
+        ],
+        "next": [
+            "退出活动任务"
+        ]
+    },
+    "退出任务": {
+        "recognition": "FeatureMatch",
+        "template": "返回.png",
+        "recommended roi": [
+            0,
+            5,
+            85,
+            74
+        ],
+        "post_delay": 1000,
+        "action": "Click"
+    },
+    "识别红点": {
+        "recognition": "ColorMatch",
+        "roi": [
+            380,
+            0,
+            899,
+            15
+        ],
+        "upper": [
+            255,
+            93,
+            165
+        ],
+        "lower": [
+            255,
+            93,
+            165
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "判断已收取",
+            "判断已收取1"
+        ],
+        "interrupt": [
+            "任务收取",
+            "关闭"
+        ]
+    },
+    "判断已收取": {
+        "recognition": "ColorMatch",
+        "upper": [
+            49,
+            101,
+            173
+        ],
+        "lower": [
+            41,
+            81,
+            173
+        ],
+        "roi": [
+            1002,
+            561,
+            238,
+            48
+        ],
+        "next": [
+            "识别活动任务退出",
+            "退出任务"
+        ]
+    },
+    "判断已收取1": {
+        "recognition": "ColorMatch",
+        "upper": [
+            49,
+            101,
+            173
+        ],
+        "lower": [
+            41,
+            81,
+            173
+        ],
+        "roi": [
+            1088,
+            168,
+            109,
+            53
+        ],
+        "next": [
+            "识别活动任务退出",
+            "退出任务"
+        ]
+    },
+    "任务收取": {
+        "recognition": "OCR",
+        "expected": "全部收取",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "收取报酬",
+            "识别红点"
+        ],
+        "interrupt": [
+            "关闭",
+            "确认(不循环)",
+            "取消",
+            "识别等级提升"
+        ]
+    },
+    "收取报酬": {
+        "recognition": "OCR",
+        "roi": [
+            565,
+            36,
+            151,
+            42
+        ],
+        "expected": "收取报酬",
+        "post_delay": 2000,
+        "next": [
+            "关闭",
+            "识别红点",
+            "识别活动任务退出",
+            "退出任务"
+        ],
+        "interrupt": [
+            "确认(不循环)",
+            "取消"
+        ]
+    },
+    "取消1": {
+        "post_delay": 2000,
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "取消",
+        "action": "Click"
+    },
+    "关闭1": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "is_sub": true,
+        "expected": "关闭",
+        "action": "Click"
+    }
+}

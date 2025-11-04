@@ -1,0 +1,151 @@
+{
+    "自动交换": {
+        "recognition": "OCR",
+        "expected": [
+            "讨伐证交换"
+        ],
+        "action": "Click",
+        "next": [
+            "识别交换页面"
+        ]
+    },
+    "识别交换页面": {
+        "recognition": "OCR",
+        "expected": [
+            "讨伐证交换"
+        ],
+        "next": [
+            "识别交换完成"
+        ],
+        "interrupt": [
+            "开始交换",
+            "查看已获得道具",
+            "抽完卡池",
+            "再次交换"
+        ]
+    },
+    "识别交换完成": {
+        "recognition": "ColorMatch",
+        "upper": [
+            123,
+            146,
+            173
+        ],
+        "lower": [
+            123,
+            146,
+            173
+        ],
+        "roi": [
+            986,
+            454,
+            233,
+            96
+        ],
+        "next": [
+            "识别主页"
+        ]
+    },
+    "开始交换": {
+        "recognition": "OCR",
+        "roi": [
+            987,
+            450,
+            228,
+            101
+        ],
+        "expected": [
+            "识别交换完成",
+            "一键交换",
+            "交换"
+        ],
+        "action": "Click",
+        "next": [
+            "一键交换确认",
+            "识别交换完成"
+        ],
+        "interrupt": [
+            "开始交换",
+            "再次交换",
+            "查看已获得道具",
+            "抽完卡池"
+        ]
+    },
+    "一键交换确认": {
+        "recognition": "OCR",
+        "expected": [
+            "一键交换完毕",
+            "持有道具中",
+            "识别交换完成"
+        ],
+        "next": [
+            "再次交换"
+        ],
+        "interrupt": [
+            "确认(不循环)",
+            "开始交换",
+            "查看已获得道具",
+            "抽完卡池",
+            "取消"
+        ]
+    },
+    "再次交换": {
+        "recognition": "OCR",
+        "expected": [
+            "再次交换"
+        ],
+        "action": "Click",
+        "next": [
+            "再次交换",
+            "开始交换",
+            "取消"
+        ],
+        "interrupt": [
+            "查看已获得道具",
+            "抽完卡池"
+        ]
+    },
+    "抽完卡池": {
+        "recognition": "OCR",
+        "expected": [
+            "全部报酬"
+        ],
+        "action": "Click",
+        "next": [
+            "确认切换"
+        ]
+    },
+    "确认切换": {
+        "recognition": "OCR",
+        "expected": [
+            "确认"
+        ],
+        "action": "Click",
+        "next": [
+            "重置卡池"
+        ]
+    },
+    "重置卡池": {
+        "recognition": "OCR",
+        "roi": [
+            482,
+            585,
+            307,
+            96
+        ],
+        "expected": [
+            "重置"
+        ],
+        "action": "Click",
+        "next": [
+            "确认(不循环)"
+        ]
+    },
+    "查看已获得道具": {
+        "recognition": "OCR",
+        "expected": [
+            "查看已获得道具"
+        ],
+        "action": "Click"
+    }
+}

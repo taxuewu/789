@@ -1,0 +1,266 @@
+{
+    "开始探险": {
+        "recognition": "OCR",
+        "expected": "识别冒险",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "点击探险"
+        ]
+    },
+    "点击探险": {
+        "recognition": "OCR",
+        "expected": "探险",
+        "action": "Click",
+        "post_delay": 4000,
+        "next": [
+            "识别探险队伍",
+            "回忆事件准备"
+        ],
+        "interrupt": [
+            "识别冒险",
+            "识别探险向导"
+        ]
+    },
+    "识别探险向导": {
+        "recognition": "FeatureMatch",
+        "template": "探险向导.png",
+        "action": "Click"
+    },
+    "识别探险队伍": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "expected": "一览",
+        "next": [
+            "一键确认归来"
+        ],
+        "interrupt": [
+            "关闭"
+        ]
+    },
+    "一键确认归来": {
+        "recognition": "OCR",
+        "expected": "确认归来",
+        "action": "Click",
+        "next": [
+            "跳过完毕"
+        ],
+        "interrupt": [
+            "识别获得物品"
+        ]
+    },
+    "跳过完毕": {
+        "recognition": "OCR",
+        "expected": "跳过完毕",
+        "action": "Click",
+        "next": [
+            "重新探险"
+        ],
+        "interrupt": [
+            "识别获得物品",
+            "确认(不循环)"
+        ]
+    },
+    "重新探险": {
+        "recognition": "OCR",
+        "expected": "重新出发",
+        "post_delay": 1800,
+        "roi": [
+            925,
+            585,
+            312,
+            97
+        ],
+        "action": "Click",
+        "next": [
+            "出发确认"
+        ]
+    },
+    "出发确认": {
+        "recognition": "OCR",
+        "roi": [
+            925,
+            585,
+            312,
+            97
+        ],
+        "expected": "出发",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "重复挑战追加完成",
+            "探险状态一览",
+            "开始回忆事件"
+        ],
+        "interrupt": [
+            "关闭"
+        ]
+    },
+    "探险状态一览": {
+        "recognition": "OCR",
+        "expected": "探险状态一览",
+        "post_delay": 1000,
+        "next": [
+            "关闭"
+        ]
+    },
+    "重复挑战追加完成": {
+        "recognition": "OCR",
+        "expected": "重复挑战追加完成",
+        "next": [
+            "识别确认"
+        ]
+    },
+    "识别确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 800,
+        "next": [
+            "退出探险队伍"
+        ]
+    },
+    "退出探险队伍": {
+        "recognition": "OCR",
+        "post_delay": 800,
+        "expected": "关闭",
+        "action": "Click",
+        "next": [
+            "回忆事件准备"
+        ]
+    },
+    "回忆事件准备": {
+        "next": [
+            "开始回忆事件",
+            "反转回忆事件"
+        ],
+        "interrupt": []
+    },
+    "反转回忆事件": {
+        "pre_delay": 1000,
+        "post_delay": 2000,
+        "recognition": "FeatureMatch",
+        "roi": [
+            1169,
+            181,
+            110,
+            113
+        ],
+        "template": [
+            "探险//回忆按钮.png",
+            "探险//回忆按钮2.png"
+        ],
+        "inverse": true,
+        "next": [
+            "识别主页"
+        ]
+    },
+    "开始回忆事件": {
+        "post_delay": 2200,
+        "recognition": "FeatureMatch",
+        "roi": [
+            1169,
+            181,
+            110,
+            113
+        ],
+        "template": [
+            "探险//回忆按钮.png",
+            "探险//回忆按钮2.png"
+        ],
+        "action": "Click",
+        "next": [
+            "确定事件"
+        ],
+        "interrupt": [
+            "反转回忆事件"
+        ]
+    },
+    "确定事件": {
+        "post_delay": 1600,
+        "target": [
+            633,
+            393,
+            0,
+            0
+        ],
+        "action": "Click",
+        "next": [
+            "获得确认"
+        ],
+        "interrupt": [
+            "特殊选项",
+            "探险跳过",
+            "探险结束",
+            "选择大门"
+        ]
+    },
+    "选择大门": {
+        "recognition": "FeatureMatch",
+        "post_delay": 500,
+        "template": [
+            "跳过.png"
+        ],
+        "next": [
+            "点击大门"
+        ],
+        "action": "Click"
+    },
+    "点击大门": {
+        "recognition": "OCR",
+        "post_delay": 500,
+        "expected": "前进",
+        "action": "Click",
+        "next": [
+            "识别获得"
+        ],
+        "interrupt": [
+            "跳过"
+        ]
+    },
+    "特殊选项": {
+        "recognition": "OCR",
+        "expected": [
+            "躲在树后",
+            "躲在岩石后面",
+            "挣扎逃跑"
+        ],
+        "action": "Click"
+    },
+    "获得确认": {
+        "recognition": "OCR",
+        "expected": "获得",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": [
+            "开始回忆事件",
+            "反转回忆事件"
+        ]
+    },
+    "探险跳过": {
+        "recognition": "FeatureMatch",
+        "roi": [
+            1062,
+            3,
+            217,
+            131
+        ],
+        "template": [
+            "跳过.png"
+        ],
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "识别获得": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "expected": "获得",
+        "action": "Click"
+    },
+    "探险结束": {
+        "recognition": "OCR",
+        "expected": "探险结束",
+        "action": "Click",
+        "post_delay": 1000
+    }
+}

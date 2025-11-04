@@ -1,0 +1,152 @@
+{
+    "开始免费10连": {
+        "post_delay": 1000,
+        "next": [
+            "识别卡池"
+        ],
+        "interrupt": [
+            "选择卡池角色",
+            "点击扭蛋"
+        ]
+    },
+    "选择卡池角色": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "action": "Click",
+        "expected": [
+            "选择的角色"
+        ],
+        "next": [
+            "角色选择"
+        ]
+    },
+    "角色选择": {
+        "recognition": "OCR",
+        "action": "Click",
+        "roi": [
+            711,
+            295,
+            192,
+            214
+        ],
+        "post_delay": 2000,
+        "expected": [
+            "选择"
+        ],
+        "next": [
+            "识别角色详情"
+        ],
+        "interrupt": [
+            "卡池确认"
+        ]
+    },
+    "识别角色详情": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "expected": [
+            "角色详情"
+        ]
+    },
+    "卡池确认": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            637,
+            449,
+            297,
+            223
+        ],
+        "action": "Click",
+        "expected": [
+            "确认"
+        ]
+    },
+    "识别卡池": {
+        "recognition": "OCR",
+        "roi": [
+            672,
+            84,
+            554,
+            27
+        ],
+        "expected": [
+            "附奖",
+            "精选",
+            "特别庆典",
+            "公主庆典"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "抽取免费10连",
+            "识别主页"
+        ]
+    },
+    "抽取免费10连": {
+        "recognition": "FeatureMatch",
+        "roi": [
+            1055,
+            377,
+            198,
+            162
+        ],
+        "template": "免费10连抽.png",
+        "action": "Click",
+        "next": [
+            "扭蛋抽取"
+        ]
+    },
+    "扭蛋抽取": {
+        "recognition": "OCR",
+        "expected": [
+            "精选",
+            "公主庆典"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "识别消费宝石抽取",
+            "确认抽取"
+        ]
+    },
+    "识别消费宝石抽取": {
+        "recognition": "OCR",
+        "expected": "消费1500宝石购买10000",
+        "post_delay": 1000,
+        "next": [
+            "取消抽取"
+        ]
+    },
+    "取消抽取": {
+        "recognition": "OCR",
+        "expected": "取消",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "识别主页"
+        ]
+    },
+    "确认抽取": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_wait_freezes": 2000,
+        "next": [
+            "跳过抽卡界面"
+        ]
+    },
+    "跳过抽卡界面": {
+        "recognition": "FeatureMatch",
+        "template": "跳过.png",
+        "detector": "KAZE",
+        "action": "Click",
+        "next": [
+            "扭蛋结果确认",
+            "取消抽取"
+        ]
+    },
+    "扭蛋结果确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click"
+    }
+}

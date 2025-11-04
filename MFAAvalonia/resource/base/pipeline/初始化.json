@@ -1,0 +1,8 @@
+{
+    "点击主菜单": {
+        "recognition": "OCR",
+        "expected": "主菜单",
+        "action": "Click",
+        "post_delay": 10000
+    }
+}

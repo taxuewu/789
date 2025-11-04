@@ -1,0 +1,741 @@
+{
+    "刷活动": {
+        "next": [
+            "活动"
+        ],
+        "interrupt": [
+            "识别冒险"
+        ]
+    },
+    "活动": {
+        "rate_limit": 2000,
+        "next": [
+            "活动每日奖励",
+            "识别活动剧情",
+            "关闭",
+            "刷活动关卡事件",
+            "识别主页"
+        ],
+        "interrupt": [
+            "开始活动剧情",
+            "活动数据下载",
+            "识别冒险"
+        ]
+    },
+    "识别活动剧情": {
+        "recognition": "FeatureMatch",
+        "post_delay": 2000,
+        "template": "菜单.png",
+        "next": [
+            "活动每日奖励"
+        ],
+        "interrupt": [
+            "单击屏幕"
+        ]
+    },
+    "单击屏幕": {
+        "pre_delay": 1000,
+        "target": [
+            633,
+            393,
+            0,
+            0
+        ],
+        "action": "Click"
+    },
+    "开始活动剧情": {
+        "recognition": "FeatureMatch",
+        "template": "菜单.png",
+        "action": "Click",
+        "next": [
+            "剧情活动自动"
+        ]
+    },
+    "剧情活动自动": {
+        "recognition": "OCR",
+        "expected": "自动",
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next": [
+            "活动每日奖励"
+        ]
+    },
+    "活动每日奖励": {
+        "recognition": "OCR",
+        "expected": "获得活动登录奖励",
+        "next": [
+            "识别报酬确认",
+            "开始活动关卡",
+            "识别简介角色"
+        ],
+        "interrupt": [
+            "关闭"
+        ]
+    },
+    "开始活动关卡": {
+        "recognition": "OCR",
+        "expected": "活动关卡",
+        "action": "Click",
+        "next": [
+            "刷活动关卡事件"
+        ]
+    },
+    "进入困难关卡": {
+        "recognition": "OCR",
+        "roi": [
+            938,
+            83,
+            321,
+            56
+        ],
+        "expected": "困难",
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "识别简介角色": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "可可萝.png"
+        ],
+        "action": "Click",
+        "green_mask": true,
+        "post_delay": 1500,
+        "next": [
+            "识别是否1-15"
+        ],
+        "interrupt": [
+            "活动每日奖励",
+            "关闭"
+        ]
+    },
+    "识别是否1-15": {
+        "recognition": "OCR",
+        "expected": [
+            "1-15",
+            "1-10"
+        ],
+        "post_delay": 500,
+        "next": [
+            "识别是否打完普通关卡",
+            "活动普通关卡扫荡"
+        ],
+        "interrupt": [
+            "活动普通关卡加",
+            "取消"
+        ]
+    },
+    "识别是否打完普通关卡": {
+        "recognition": "ColorMatch",
+        "roi": [
+            906,
+            419,
+            200,
+            52
+        ],
+        "upper": [
+            49,
+            97,
+            173
+        ],
+        "lower": [
+            49,
+            93,
+            173
+        ],
+        "pre_delay": 500,
+        "next": [
+            "开始困难boss关卡",
+            "识图困难boss关卡"
+        ],
+        "interrupt": [
+            "退出困难碎片关卡",
+            "进入困难关卡"
+        ]
+    },
+    "进入活动扫荡关卡": {
+        "recognition": "OCR",
+        "expected": [
+            "扫荡",
+            "司汤"
+        ],
+        "action": "Click",
+        "next": [
+            "识别无挑战次数",
+            "判断是否困难"
+        ],
+        "interrupt": [
+            "困难关卡筛选"
+        ]
+    },
+    "判断是否困难": {
+        "recognition": "OCR",
+        "expected": "困难",
+        "post_delay": 1000,
+        "roi": [
+            575,
+            135,
+            48,
+            28
+        ],
+        "next": [
+            "判断勾选困难关卡"
+        ],
+        "interrupt": [
+            "勾选困难关卡"
+        ]
+    },
+    "判断勾选困难关卡": {
+        "recognition": "FeatureMatch",
+        "roi": [
+            1089,
+            181,
+            97,
+            320
+        ],
+        "template": [
+            "打钩.png"
+        ],
+        "next": [
+            "一键扫荡"
+        ],
+        "interrupt": [
+            "勾选困难关卡"
+        ]
+    },
+    "一键扫荡": {
+        "recognition": "OCR",
+        "expected": "一键扫荡",
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "挑战"
+        ]
+    },
+    "挑战": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "roi": [
+            646,
+            602,
+            284,
+            74
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "识别无挑战次数"
+        ],
+        "interrupt": [
+            "识别团队战",
+            "小框确认",
+            "关闭",
+            "取消"
+        ]
+    },
+    "识别无挑战次数": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            321,
+            193,
+            46,
+            313
+        ],
+        "expected": "剩余",
+        "next": [
+            "打高难boss"
+        ],
+        "interrupt": [
+            "退出困难碎片关卡",
+            "确认(不循环)"
+        ]
+    },
+    "勾选困难关卡": {
+        "target": [
+            1131,
+            230,
+            1,
+            1
+        ],
+        "action": "Click",
+        "next": [
+            "勾选困难关卡1"
+        ]
+    },
+    "勾选困难关卡1": {
+        "target": [
+            1123,
+            315,
+            1,
+            1
+        ],
+        "action": "Click",
+        "next": [
+            "勾选困难关卡2"
+        ]
+    },
+    "勾选困难关卡2": {
+        "target": [
+            1131,
+            399,
+            1,
+            1
+        ],
+        "action": "Click",
+        "next": [
+            "勾选困难关卡3"
+        ]
+    },
+    "勾选困难关卡3": {
+        "target": [
+            1129,
+            483,
+            1,
+            1
+        ],
+        "action": "Click",
+        "next": [
+            "滑动困难关卡"
+        ]
+    },
+    "滑动困难关卡": {
+        "action": "Swipe",
+        "begin": [
+            994,
+            424,
+            1,
+            1
+        ],
+        "end": [
+            994,
+            336,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "next": [
+            "勾选困难关卡4"
+        ]
+    },
+    "勾选困难关卡4": {
+        "target": [
+            1129,
+            483,
+            1,
+            1
+        ],
+        "action": "Click"
+    },
+    "困难关卡筛选": {
+        "action": "Click",
+        "target": [
+            641,
+            149,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": [
+            "判断勾选全部",
+            "判断勾选困难"
+        ]
+    },
+    "判断勾选全部": {
+        "recognition": "FeatureMatch",
+        "template": "打钩.png",
+        "roi": [
+            346,
+            237,
+            66,
+            62
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "判断勾选困难"
+        ],
+        "interrupt": [
+            "勾选困难"
+        ]
+    },
+    "判断勾选困难": {
+        "recognition": "FeatureMatch",
+        "template": "打钩.png",
+        "roi": [
+            341,
+            376,
+            74,
+            65
+        ],
+        "next": [
+            "决定"
+        ]
+    },
+    "勾选困难": {
+        "target": [
+            377,
+            408,
+            1,
+            1
+        ],
+        "action": "Click",
+        "post_delay": 500
+    },
+    "打高难boss": {
+        "recognition": "OCR",
+        "expected": "高难",
+        "roi": [
+            751,
+            87,
+            512,
+            405
+        ],
+        "action": "Click",
+        "next": [
+            "打完高难"
+        ],
+        "interrupt": [
+            "战斗准备"
+        ]
+    },
+    "战斗准备": {
+        "recognition": "OCR",
+        "roi": [
+            1033,
+            603,
+            173,
+            41
+        ],
+        "expected": "挑战",
+        "action": "Click",
+        "next": [
+            "战斗开始"
+        ]
+    },
+    "战斗开始": {
+        "recognition": "OCR",
+        "pre_delay": 1000,
+        "expected": "战斗开始",
+        "action": "Click",
+        "timeout": 500000,
+        "post_wait_freezes": 2000,
+        "next": [
+            "战斗中"
+        ]
+    },
+    "战斗中": {
+        "recognition": "OCR",
+        "expected": "下一步",
+        "post_delay": 2000,
+        "action": "Click",
+        "next": [
+            "战斗完成"
+        ]
+    },
+    "战斗完成": {
+        "recognition": "OCR",
+        "pre_delay": 1000,
+        "expected": "下一步",
+        "action": "Click"
+    },
+    "识别报酬确认": {
+        "recognition": "OCR",
+        "expected": "报酬确认",
+        "next": [
+            "退出日程表"
+        ]
+    },
+    "刷活动关卡事件": {
+        "recognition": "OCR",
+        "roi": [
+            938,
+            83,
+            321,
+            56
+        ],
+        "expected": "困难",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "开始活动关卡",
+            "进入活动扫荡关卡"
+        ],
+        "interrupt": [
+            "活动每日奖励",
+            "关闭",
+            "进入困难关卡"
+        ]
+    },
+    "已完成开始刷高难": {
+        "recognition": "ColorMatch",
+        "roi": [
+            906,
+            419,
+            200,
+            52
+        ],
+        "upper": [
+            49,
+            97,
+            173
+        ],
+        "lower": [
+            49,
+            93,
+            173
+        ],
+        "pre_delay": 1000,
+        "post_delay": 1000,
+        "next": [
+            "打高难boss"
+        ],
+        "interrupt": [
+            "退出困难碎片关卡"
+        ]
+    },
+    "活动扫荡": {
+        "recognition": "OCR",
+        "expected": [
+            "使用",
+            "击破"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "识别活动扫荡确认"
+        ]
+    },
+    "识别活动扫荡确认": {
+        "recognition": "OCR",
+        "expected": "扫荡券确认",
+        "next": [
+            "确认活动扫荡"
+        ]
+    },
+    "确认活动扫荡": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "roi": [
+            342,
+            455,
+            596,
+            81
+        ],
+        "action": "Click",
+        "next": [
+            "识别扫荡完成"
+        ]
+    },
+    "识别扫荡完成": {
+        "recognition": "OCR",
+        "expected": "扫荡结果",
+        "next": [
+            "活动战斗确认"
+        ]
+    },
+    "活动战斗确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "pre_delay": 2000,
+        "post_delay": 2500,
+        "action": "Click",
+        "next": [
+            "识别限定商店"
+        ],
+        "interrupt": [
+            "识别等级提升",
+            "识别团队战",
+            "关闭"
+        ]
+    },
+    "退出困难碎片关卡": {
+        "recognition": "OCR",
+        "expected": "取消",
+        "action": "Click"
+    },
+    "打完高难": {
+        "recognition": "FeatureMatch",
+        "template": "高难已完成.png",
+        "next": [
+            "进入普通关卡"
+        ],
+        "interrupt": [
+            "取消"
+        ]
+    },
+    "进入普通关卡": {
+        "recognition": "OCR",
+        "roi": [
+            938,
+            83,
+            321,
+            56
+        ],
+        "expected": "普通",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "识别简介角色"
+        ]
+    },
+    "开始困难boss关卡": {
+        "recognition": "OCR",
+        "roi": [
+            0,
+            130,
+            1280,
+            523
+        ],
+        "expected": "困难",
+        "action": "Click",
+        "next": [
+            "活动困难boss扫荡"
+        ],
+        "interrupt": [
+            "取消"
+        ]
+    },
+    "识图困难boss关卡": {
+        "recognition": "FeatureMatch",
+        "template": "活动//识图困难boss关卡.png",
+        "action": "Click",
+        "pre_delay": 2000,
+        "next": [
+            "活动困难boss扫荡"
+        ]
+    },
+    "活动困难boss扫荡": {
+        "recognition": "OCR",
+        "expected": "MAX",
+        "action": "Click",
+        "post_delay": 300,
+        "next": [
+            "识别是否打完困难boss",
+            "扫荡"
+        ]
+    },
+    "识别是否打完困难boss": {
+        "recognition": "ColorMatch",
+        "roi": [
+            889,
+            458,
+            235,
+            84
+        ],
+        "upper": [
+            49,
+            97,
+            173
+        ],
+        "lower": [
+            49,
+            93,
+            173
+        ],
+        "pre_delay": 1000,
+        "post_delay": 1000,
+        "next": [
+            "识别活动任务"
+        ],
+        "interrupt": [
+            "退出困难碎片关卡"
+        ]
+    },
+    "活动普通关卡扫荡": {
+        "next": [
+            "扫荡"
+        ]
+    },
+    "扫荡": {
+        "recognition": "OCR",
+        "expected": [
+            "使用",
+            "击破"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "识别扫荡确认"
+        ],
+        "interrupt": [
+            "确认(不循环)",
+            "体力不足"
+        ]
+    },
+    "识别扫荡确认": {
+        "recognition": "OCR",
+        "expected": "扫荡券确认",
+        "next": [
+            "确认扫荡1"
+        ]
+    },
+    "确认扫荡1": {
+        "recognition": "OCR",
+        "roi": [
+            338,
+            446,
+            600,
+            91
+        ],
+        "expected": "确认",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "识别完成"
+        ]
+    },
+    "识别完成": {
+        "recognition": "OCR",
+        "expected": "扫荡结果",
+        "post_delay": 1000,
+        "post_wait_freezes": 1000,
+        "next": [
+            "识别是否打完普通关卡",
+            "识别是否打完困难boss",
+            "开始困难boss关卡"
+        ],
+        "interrupt": [
+            "识别跳过完毕",
+            "确认(不循环)",
+            "取消",
+            "进入困难关卡",
+            "识别对话"
+        ]
+    },
+    "识别跳过完毕": {
+        "recognition": "OCR",
+        "expected": "跳过完毕",
+        "action": "Click"
+    },
+    "活动普通关卡加": {
+        "recognition": "FeatureMatch",
+        "template": "活动//加.png",
+        "post_delay": 500,
+        "action": "Click"
+    },
+    "识别活动任务": {
+        "recognition": "FeatureMatch",
+        "template": "任务图.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "识别红点",
+            "退出活动任务"
+        ]
+    },
+    "退出活动任务": {
+        "recognition": "FeatureMatch",
+        "template": "返回.png",
+        "recommended roi": [
+            0,
+            5,
+            85,
+            74
+        ],
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "识别主页"
+        ]
+    }
+}

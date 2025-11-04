@@ -1,0 +1,197 @@
+{
+    "开始日程表": {
+        "recognition": "OCR",
+        "expected": "我的主页",
+        "action": "Click",
+        "next": [
+            "点击日程表"
+        ],
+        "interrupt": [
+            "关闭"
+        ]
+    },
+    "点击日程表": {
+        "recognition": "OCR",
+        "expected": "日程表",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "识别是否完成日程表",
+            "一键自动"
+        ]
+    },
+    "一键自动": {
+        "recognition": "OCR",
+        "expected": "一键自动",
+        "action": "Click",
+        "post_delay": 800,
+        "next": [
+            "识别收取报酬",
+            "识别行会点赞",
+            "识别经验值关卡跳过确认",
+            "识别玛那关卡跳过确认",
+            "识别地下城跳过确认"
+        ]
+    },
+    "扫荡完成": {
+        "recognition": "OCR",
+        "expected": "扫荡完成",
+        "post_delay": 400,
+        "next": [
+            "扫荡确认"
+        ]
+    },
+    "扫荡确认": {
+        "roi": [
+            480,
+            584,
+            309,
+            97
+        ],
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 800
+    },
+    "识别地下城跳过确认": {
+        "recognition": "OCR",
+        "expected": "地下城跳过确认",
+        "is_sub": true,
+        "next": [
+            "地下城跳过确认"
+        ]
+    },
+    "地下城跳过确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "roi": [
+            345,
+            449,
+            587,
+            89
+        ],
+        "post_delay": 800,
+        "next": [
+            "扫荡完成"
+        ]
+    },
+    "识别玛那关卡跳过确认": {
+        "recognition": "OCR",
+        "expected": "玛那关卡跳过确认",
+        "is_sub": true,
+        "next": [
+            "玛那关卡跳过确认"
+        ]
+    },
+    "玛那关卡跳过确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "roi": [
+            345,
+            449,
+            587,
+            89
+        ],
+        "post_delay": 800,
+        "next": [
+            "扫荡完成"
+        ]
+    },
+    "识别经验值关卡跳过确认": {
+        "recognition": "OCR",
+        "expected": "经验值关卡跳过确认",
+        "is_sub": true,
+        "next": [
+            "经验值关卡跳过确认"
+        ]
+    },
+    "经验值关卡跳过确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "roi": [
+            345,
+            449,
+            587,
+            89
+        ],
+        "post_delay": 800,
+        "next": [
+            "扫荡完成"
+        ]
+    },
+    "识别行会点赞": {
+        "recognition": "OCR",
+        "expected": [
+            "点赞完成",
+            "点赞确认"
+        ],
+        "post_delay": 800,
+        "is_sub": true,
+        "next": [
+            "点赞"
+        ]
+    },
+    "点赞": {
+        "recognition": "OCR",
+        "roi": [
+            483,
+            455,
+            324,
+            88
+        ],
+        "expected": "确认",
+        "post_delay": 500,
+        "action": "Click"
+    },
+    "识别收取报酬": {
+        "recognition": "OCR",
+        "expected": "收取报酬",
+        "next": [
+            "报酬关闭"
+        ]
+    },
+    "报酬关闭": {
+        "recognition": "OCR",
+        "expected": "关闭",
+        "action": "Click",
+        "next": [
+            "识别是否完成日程表"
+        ]
+    },
+    "识别是否完成日程表": {
+        "recognition": "ColorMatch",
+        "roi": [
+            755,
+            616,
+            250,
+            48
+        ],
+        "upper": [
+            49,
+            97,
+            173
+        ],
+        "lower": [
+            41,
+            81,
+            173
+        ],
+        "pre_delay": 1000,
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "退出日程表"
+        ]
+    },
+    "退出日程表": {
+        "recognition": "OCR",
+        "expected": "关闭",
+        "action": "Click",
+        "next": [
+            "识别主页"
+        ]
+    }
+}

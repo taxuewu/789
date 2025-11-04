@@ -1,0 +1,196 @@
+{
+  "name": "小助手",
+  "version": "0.1",
+  "url": "",
+  "controller": [
+    {
+      "name": "Adb 默认方式",
+      "type": "Adb"
+    }
+  ],
+  "resource": [
+    {
+      "name": "国服",
+      "path": [
+        "{PROJECT_DIR}/Resource/base"
+      ]
+    }
+  ],
+  "task": [
+    {
+      "name": "启动游戏",
+      "entry": "启动",
+      "check": true
+    },
+    {
+      "name": "日程表",
+      "entry": "开始日程表",
+      "check": true
+    },
+    {
+      "name": "任务",
+      "entry": "开始任务领取",
+      "check": true
+    },
+    {
+      "name": "每日调查",
+      "entry": "准备调查",
+      "doc": "暂时只支持已挑战的调查,只刷神殿和圣迹最高一关",
+      "option": [
+        "选择调查关卡"
+      ],
+      "check": true
+    },
+    {
+      "name": "收取礼物",
+      "entry": "开始领取礼物",
+      "check": true
+    },
+    {
+      "name": "限定商店全购买",
+      "entry": "开始限定商店购买",
+      "doc": "默认是全选购买,建议放到最后到5次再执行",
+      "check": true
+    },
+    {
+      "name": "自动活动",
+      "entry": "刷活动",
+      "doc": "需要通关一次普通和困难关卡和困难高难boss后才可自动,包含讨伐证交换和活动任务",
+      "option": [
+        "选择活动关卡",
+        "刷取普通关卡次数"
+      ]
+    },
+    {
+      "name": "每日探险",
+      "entry": "开始探险",
+      "check": true
+    },
+    {
+      "name": "每日免费10连抽取",
+      "entry": "开始免费10连",
+      "doc": "没有免费10连,不建议打开有可能卡住",
+      "check": true
+    },
+    {
+      "name": "女神庆典",
+      "entry": "开始女神庆典",
+      "check": true
+    }
+  ],
+  "option": {
+    "选择活动关卡": {
+      "cases": [
+        {
+          "name": "进入剧情活动",
+          "pipeline_override": {
+            "活动": {
+              "recognition": "FeatureMatch",
+              "roi": [
+                229,
+                519,
+                377,
+                98
+              ],
+              "post_delay": 3000,
+              "template": [
+                "剧情活动.png"
+              ],
+              "action": "Click"
+            }
+          }
+        },
+        {
+          "name": "进入复刻活动",
+          "pipeline_override": {
+            "活动": {
+              "recognition": "FeatureMatch",
+              "roi": [
+                229,
+                519,
+                377,
+                98
+              ],
+              "post_delay": 3000,
+              "template": [
+                "复刻.png"
+              ],
+              "action": "Click"
+            }
+          }
+        }
+      ]
+    },
+    "刷取普通关卡次数": {
+      "cases": [
+        {
+          "name": "5次",
+          "pipeline_override": {
+            "活动普通关卡扫荡": {
+              "recognition": "OCR",
+              "roi": [
+                918,
+                416,
+                178,
+                49
+              ],
+              "expected": "使用5张"
+            }
+          }
+        },
+        {
+          "name": "10次",
+          "pipeline_override": {
+            "活动普通关卡扫荡": {
+              "recognition": "OCR",
+              "roi": [
+                918,
+                416,
+                178,
+                49
+              ],
+              "expected": "使用10张"
+            }
+          }
+        },
+        {
+          "name": "全刷",
+          " pipeline_override": {
+            "活动普通关卡扫荡": {
+              "recognition": "OCR",
+              "expected": "MAX",
+              "action": "Click",
+              "post_delay": 1000
+            }
+          }
+        }
+      ]
+    },
+    "选择调查关卡": {
+      "cases": [
+        {
+          "name": "刷圣迹调查",
+          "pipeline_override": {
+            "调查选取": {
+              "recognition": "OCR",
+              "expected": "圣迹调查",
+              "action": "Click",
+              "post_delay": 1000
+            }
+          }
+        },
+        {
+          "name": "刷神殿调查",
+          "pipeline_override": {
+            "调查选取": {
+              "recognition": "OCR",
+              "expected": "神殿调查",
+              "action": "Click",
+              "post_delay": 1000
+            }
+          }
+        }
+      ]
+    }
+  }
+}

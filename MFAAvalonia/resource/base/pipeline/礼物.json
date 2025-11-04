@@ -1,0 +1,122 @@
+{
+    "开始领取礼物": {
+        "next": [
+            "开始领取礼物1"
+        ],
+        "interrupt": [
+            "识别主页"
+        ]
+    },
+    "开始领取礼物1": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            1155,
+            515,
+            120,
+            125
+        ],
+        "expected": "礼物",
+        "action": "Click",
+        "next": [
+            "识别已收取",
+            "礼物收取"
+        ]
+    },
+    "礼物收取": {
+        "recognition": "OCR",
+        "pre_delay": 1000,
+        "expected": "全部收取",
+        "action": "Click",
+        "next": [
+            "识别收取礼物"
+        ]
+    },
+    "识别已收取": {
+        "recognition": "ColorMatch",
+        "upper": [
+            49,
+            101,
+            173
+        ],
+        "lower": [
+            41,
+            81,
+            173
+        ],
+        "roi": [
+            954,
+            619,
+            66,
+            35
+        ],
+        "next": [
+            "礼物取消"
+        ]
+    },
+    "识别收取礼物": {
+        "recognition": "OCR",
+        "expected": "收取礼物",
+        "next": [
+            "礼物确认"
+        ]
+    },
+    "礼物确认": {
+        "action": "Click",
+        "post_delay": 800,
+        "target": [
+            776,
+            639,
+            0,
+            0
+        ],
+        "next": [
+            "识别收取礼物1",
+            "持有上限"
+        ]
+    },
+    "持有上限": {
+        "recognition": "OCR",
+        "roi": [
+            581,
+            179,
+            121,
+            36
+        ],
+        "expected": "持有上限",
+        "post_delay": 1000,
+        "next": [
+            "识别主页"
+        ],
+        "interrupt": [
+            "取消"
+        ]
+    },
+    "识别收取礼物1": {
+        "recognition": "OCR",
+        "expected": "收取礼物",
+        "next": [
+            "礼物确认1"
+        ]
+    },
+    "礼物确认1": {
+        "action": "Click",
+        "post_delay": 800,
+        "target": [
+            633,
+            634,
+            0,
+            0
+        ],
+        "next": [
+            "礼物取消"
+        ]
+    },
+    "礼物取消": {
+        "recognition": "OCR",
+        "expected": "礼物箱",
+        "next": [
+            "退出限定商店"
+        ]
+    }
+}

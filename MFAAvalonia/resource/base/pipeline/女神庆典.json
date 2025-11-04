@@ -1,0 +1,87 @@
+{
+    "开始女神庆典": {
+        "next": [
+            "识别女神庆典",
+            "识别主页"
+        ]
+    },
+    "识别女神庆典": {
+        "recognition": "OCR",
+        "expected": [
+            "女神庆典",
+            "嘉年华"
+        ],
+        "action": "Click",
+        "pre_delay": 1000,
+        "post_delay": 1500,
+        "next": [
+            "识别庆典任务"
+        ]
+    },
+    "识别庆典任务": {
+        "recognition": "OCR",
+        "expected": [
+            "庆典任务",
+            "任务"
+        ],
+        "action": "Click",
+        "next": [
+            "识别每日任务"
+        ]
+    },
+    "识别每日任务": {
+        "recognition": "OCR",
+        "expected": "每日任务",
+        "action": "Click",
+        "next": [
+            "每日任务收取"
+        ]
+    },
+    "每日任务收取": {
+        "recognition": "OCR",
+        "expected": "全部收取",
+        "post_delay": 2000,
+        "action": "Click",
+        "next": [
+            "庆典收取报酬",
+            "识别女神宝库"
+        ]
+    },
+    "庆典收取报酬": {
+        "recognition": "OCR",
+        "expected": "收取报酬",
+        "next": [
+            "庆典报酬关闭"
+        ]
+    },
+    "庆典报酬关闭": {
+        "recognition": "OCR",
+        "expected": "关闭",
+        "post_delay": 2000,
+        "action": "Click",
+        "next": [
+            "识别女神宝库"
+        ]
+    },
+    "识别女神宝库": {
+        "recognition": "OCR",
+        "expected": [
+            "女神宝库",
+            "奖励"
+        ],
+        "action": "Click",
+        "next": [
+            "全部收取1"
+        ]
+    },
+    "全部收取1": {
+        "recognition": "OCR",
+        "expected": "全部收取",
+        "post_delay": 2000,
+        "action": "Click",
+        "next": [
+            "关闭",
+            "识别主页"
+        ]
+    }
+}

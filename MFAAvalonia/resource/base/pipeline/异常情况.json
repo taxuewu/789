@@ -1,0 +1,164 @@
+{
+    "单击屏幕中心": {
+        "target": [
+            620,
+            280,
+            1,
+            1
+        ],
+        "action": "Click"
+    },
+    "点击扭蛋": {
+        "recognition": "OCR",
+        "post_delay": 5000,
+        "expected": "扭蛋",
+        "action": "Click",
+        "roi": [
+            951,
+            671,
+            101,
+            48
+        ]
+    },
+    "识别冒险": {
+        "recognition": "OCR",
+        "roi": [
+            46,
+            684,
+            1233,
+            35
+        ],
+        "expected": "冒险",
+        "action": "Click"
+    },
+    "识别主页": {
+        "recognition": "OCR",
+        "roi": [
+            46,
+            684,
+            1233,
+            35
+        ],
+        "expected": "我的主页",
+        "action": "Click"
+    },
+    "识别等级提升": {
+        "recognition": "OCR",
+        "expected": "等级提升",
+        "next": [
+            "点赞"
+        ]
+    },
+    "识别团队战": {
+        "recognition": "OCR",
+        "expected": "挑战团队战吧",
+        "next": [
+            "取消"
+        ]
+    },
+    "取消": {
+        "recognition": "OCR",
+        "post_delay": 500,
+        "expected": "取消",
+        "action": "Click"
+    },
+    "识别限定商店": {
+        "recognition": "OCR",
+        "expected": "限定商店",
+        "next": [
+            "退出限定商店",
+            "活动战斗确认"
+        ]
+    },
+    "识别限定商店(循环)": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "限定商店",
+        "pre_delay": 2000,
+        "next": [
+            "退出限定商店"
+        ]
+    },
+    "活动数据下载": {
+        "recognition": "OCR",
+        "expected": "无语音",
+        "action": "Click"
+    },
+    "剧情解锁": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "剧情解锁",
+        "next": [
+            "点赞"
+        ]
+    },
+    "识别获得物品": {
+        "recognition": "OCR",
+        "expected": "获得",
+        "action": "Click"
+    },
+    "跳过": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "跳过.png"
+        ],
+        "action": "Click"
+    },
+    "关闭": {
+        "recognition": "OCR",
+        "roi": [
+            196,
+            485,
+            1041,
+            201
+        ],
+        "expected": "关闭",
+        "action": "Click"
+    },
+    "决定": {
+        "recognition": "OCR",
+        "post_delay": 500,
+        "expected": "决定",
+        "action": "Click"
+    },
+    "确认跳过提示": {
+        "recognition": "OCR",
+        "expected": "跳过确认",
+        "next": [
+            "关闭"
+        ]
+    },
+    "确认(不循环)": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click"
+    },
+    "确认(循环)": {
+        "post_delay": 1000,
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click"
+    },
+    "体力不足": {
+        "recognition": "OCR",
+        "expected": "体力不足",
+        "post_delay": 2000,
+        "next": [
+            "取消"
+        ]
+    },
+    "小框确认": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            524,
+            454,
+            431,
+            199
+        ],
+        "expected": "确认",
+        "action": "Click"
+    }
+}

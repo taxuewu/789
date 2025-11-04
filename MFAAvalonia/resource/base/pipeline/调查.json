@@ -1,0 +1,151 @@
+{
+    "准备调查": {
+        "recognition":"OCR",
+        "expected": "识别主页",
+        "action": "Click",
+        "post_delay": 2000,
+        "pre_delay": 800,
+        "next": [
+            "开始调查"
+        ]
+    },
+    "开始调查": {
+        "recognition":"OCR",
+        "roi": [
+            59,
+            677,
+            1155,
+            42
+        ],
+        "expected": "冒险",
+        "action": "Click",
+        "pre_delay": 1200,
+        "next": [
+            "点击调查"
+        ]
+    },
+    "点击调查": {
+        "recognition": "OCR",
+        "expected": "调查",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "调查选取"
+        ],
+        "interrupt": [
+            "开始调查"
+        ]
+    },
+    "调查选取": {
+        "next": [
+            "自动调查"
+        ]
+    },
+    "自动调查": {
+        "recognition": "DirectHit",
+        "post_delay": 1000,
+        "action": "Click",
+        "target": [
+            915,
+            192,
+            0,
+            0
+        ],
+        "next": [
+            "使用扫荡券"
+        ]
+    },
+    "使用扫荡券": {
+        "recognition": "OCR",
+        "expected": "使用",
+        "action": "Click",
+        "next": [
+            "确认画面",
+            "识别扫荡券确认"
+        ]
+    },
+    "识别扫荡券确认": {
+        "recognition": "OCR",
+        "expected": "扫荡券确认",
+        "post_delay": 1000,
+        "next": [
+            "确认扫荡"
+        ]
+    },
+    "确认扫荡": {
+        "recognition": "OCR",
+        "roi": [
+            338,
+            446,
+            600,
+            91
+        ],
+        "expected": "确认",
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "识别扫荡结果"
+        ]
+    },
+    "识别扫荡结果": {
+        "recognition": "OCR",
+        "expected": "扫荡结果",
+        "post_delay": 1000,
+        "next": [
+            "战斗确认"
+        ]
+    },
+    "战斗确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "post_delay": 3000,
+        "action": "Click",
+        "next": [
+            "退出战斗"
+        ],
+        "interrupt": [
+            "识别限定商店",
+            "识别等级提升"
+        ]
+    },
+    "退出战斗": {
+        "recognition": "OCR",
+        "post_delay": 3000,
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "退出战斗",
+            "识别已挑战完毕"
+        ]
+    },
+    "识别已挑战完毕": {
+        "recognition": "FeatureMatch",
+        "template": "挑战次数0.png",
+        "next": [],
+        "interrupt": [
+            "取消"
+        ]
+    },
+    "确认画面": {
+        "recognition": "OCR",
+        "expected": "确认画面",
+        "next": [
+            "确认取消"
+        ]
+    },
+    "确认取消": {
+        "recognition": "OCR",
+        "post_delay": 3000,
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "调查再取消"
+        ]
+    },
+    "调查再取消": {
+        "recognition": "OCR",
+        "post_delay": 3000,
+        "expected": "取消",
+        "action": "Click"
+    }
+}

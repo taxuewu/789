@@ -1,0 +1,158 @@
+{
+    "开始刷塔": {
+        "recognition": "OCR",
+        "expected": "露娜之塔",
+        "post_delay": 2000,
+        "action": "Click",
+        "next": [
+            "开始挑战"
+        ],
+        "interrrupt": [
+            "识别冒险"
+        ]
+    },
+    "开始挑战": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "编队"
+        ],
+        "interrrupt": [
+            "确认跳过提示"
+        ]
+    },
+    "再挑战": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "开始战斗"
+        ]
+    },
+    "编队": {
+        "recognition": "OCR",
+        "expected": "我的队伍",
+        "action": "Click",
+        "next": [
+            "选择队伍1"
+        ]
+    },
+    "选择队伍1": {
+        "recognition": "OCR",
+        "expected": "队伍1",
+        "action": "Click",
+        "next": [
+            "1队出战"
+        ]
+    },
+    "1队出战": {
+        "recognition": "OCR",
+        "roi": [
+            905,
+            209,
+            297,
+            134
+        ],
+        "expected": "呼出此编组",
+        "action": "Click",
+        "next": [
+            "开始战斗"
+        ]
+    },
+    "开始战斗": {
+        "recognition": "OCR",
+        "expected": "战斗开始",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "识别结果确认",
+            "跳过塔战"
+        ]
+    },
+    "识别结果确认": {
+        "recognition": "OCR",
+        "expected": "跳过结果确认",
+        "post_delay": 2000,
+        "next": [
+            "跳过结果确认"
+        ]
+    },
+    "跳过结果确认": {
+        "recognition": "OCR",
+        "expected": "跳过",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "塔战完成"
+        ]
+    },
+    "跳过塔战": {
+        "recognition": "FeatureMatch",
+        "template": "露娜塔//跳过.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "塔战完成"
+        ]
+    },
+    "塔战完成": {
+        "recognition": "OCR",
+        "expected": "下一步",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "再下一步"
+        ]
+    },
+    "再下一步": {
+        "recognition": "OCR",
+        "expected": "下一步",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "剧情解锁",
+            "跳过塔层"
+        ]
+    },
+    "跳过塔层": {
+        "recognition": "OCR",
+        "roi": [
+            383,
+            6,
+            221,
+            88
+        ],
+        "expected": "跳到",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "跳过确认"
+        ]
+    },
+    "跳过确认": {
+        "recognition": "OCR",
+        "roi": [
+            334,
+            529,
+            606,
+            96
+        ],
+        "expected": "确认",
+        "action": "Click",
+        "next": [
+            "剧情解锁",
+            "跳过确认1"
+        ]
+    },
+    "跳过确认1": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "next": [
+            "再挑战"
+        ]
+    }
+}

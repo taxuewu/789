@@ -1,0 +1,275 @@
+{
+    "启动": {
+        "action": "StartApp",
+        "package": "com.bilibili.priconne/com.bilibili.permission.PermissionActivity",
+        "post_wait_freezes": 1000,
+        "next": [
+            "识别主页",
+            "进入游戏"
+        ]
+    },
+    "进入游戏": {
+        "recognition": "OCR",
+        "expected": "开始游戏",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "post_delay": 10000,
+        "next": [
+            "进入游戏事件"
+        ]
+    },
+    "进入游戏事件": {
+        "post_delay": 1000,
+        "rate_limit": 3000,
+        "next": [
+            "识别玩家等级"
+        ],
+        "interrupt": [
+            "重试数据下载",
+            "数据下载",
+            "通知",
+            "跑步竞赛",
+            "关闭",
+            "取消",
+            "跳过",
+            "识别对话框",
+            "识别对话",
+            "单击屏幕"
+        ]
+    },
+    "识别菜单": {
+        "recognition": "FeatureMatch",
+        "template": "菜单.png",
+        "post_delay": 1000,
+        "next": [
+            "识别主页"
+        ]
+    },
+    "识别对话框": {
+        "recognition": "ColorMatch",
+        "roi": [
+            360,
+            211,
+            69,
+            309
+        ],
+        "lower": [
+            255,
+            215,
+            222
+        ],
+        "upper": [
+            255,
+            227,
+            231
+        ],
+        "action": "Click"
+    },
+    "识别玩家等级": {
+        "recognition": "OCR",
+        "pre_delay": 2000,
+        "post_delay": 1000,
+        "expected": [
+            "玩家等级"
+        ],
+        "next": [
+            "识别主页"
+        ],
+        "interrupt": [
+            "通知",
+            "关闭",
+            "取消"
+        ]
+    },
+    "跑步竞赛": {
+        "recognition": "OCR",
+        "expected": "兰德索尔杯",
+        "post_delay": 1000,
+        "next": [
+            "选择角色"
+        ]
+    },
+    "选择角色": {
+        "target": [
+            1041,
+            399,
+            1,
+            1
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "开始比赛"
+        ]
+    },
+    "开始比赛": {
+        "recognition": "OCR",
+        "expected": "竞赛开始",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "比赛结束"
+        ],
+        "interrupt": [
+            "点击跳过"
+        ]
+    },
+    "比赛结束": {
+        "recognition": "OCR",
+        "roi": [
+            725,
+            285,
+            202,
+            99
+        ],
+        "expected": "位",
+        "action": "Click",
+        "post_delay": 5000
+    },
+    "识别对话": {
+        "recognition": "ColorMatch",
+        "roi": [
+            497,
+            112,
+            287,
+            565
+        ],
+        "upper": [
+            57,
+            65,
+            74
+        ],
+        "lower": [
+            57,
+            65,
+            74
+        ],
+        "action": "Click"
+    },
+    "识别卡池版本活动": {
+        "recognition": "OCR",
+        "expected": [
+            "公主庆典",
+            "精选扭蛋",
+            "出现概率提升"
+        ],
+        "pre_delay": 2000,
+        "action": "Click",
+        "next": [
+            "点击跳过",
+            "识别主页"
+        ],
+        "interrupt": [
+            "单击屏幕"
+        ]
+    },
+    "通知": {
+        "recognition": "OCR",
+        "pre_delay": 500,
+        "post_delay": 2000,
+        "expected": [
+            "通知",
+            "团队战",
+            "计划整理"
+        ],
+        "next": [
+            "关闭"
+        ]
+    },
+    "数据下载": {
+        "recognition": "OCR",
+        "expected": "数据下载",
+        "post_wait_freezes": 2000,
+        "next": [
+            "下载确认",
+            "开始关闭"
+        ]
+    },
+    "重试数据下载": {
+        "recognition": "OCR",
+        "expected": "下载错误",
+        "next": [
+            "重试"
+        ]
+    },
+    "重试": {
+        "recognition": "OCR",
+        "expected": "重试",
+        "action": "Click"
+    },
+    "下载确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 10000
+    },
+    "开始确认": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 10000,
+        "next": [
+            "点击跳过"
+        ]
+    },
+    "开始关闭": {
+        "recognition": "OCR",
+        "expected": "关闭",
+        "action": "Click",
+        "pre_delay": 1000,
+        "post_delay": 5000,
+        "next": [
+            "点击跳过",
+            "开始关闭",
+            "识别主页"
+        ],
+        "interrupt": [
+            "取消"
+        ]
+    },
+    "点击跳过": {
+        "recognition": "FeatureMatch",
+        "roi": [
+            1094,
+            0,
+            185,
+            113
+        ],
+        "template": [
+            "跳过.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "点击跳过",
+            "识别跳过",
+            "开始关闭"
+        ],
+        "interrupt": [
+            "单击屏幕中心"
+        ]
+    },
+    "识别跳过": {
+        "recognition": "OCR",
+        "roi": [
+            337,
+            453,
+            591,
+            86
+        ],
+        "expected": "跳过",
+        "action": "Click",
+        "next": [
+            "识别生日碎片",
+            "点击跳过"
+        ]
+    },
+    "识别生日碎片": {
+        "recognition": "OCR",
+        "expected": "生日碎片",
+        "action": "Click",
+        "next": [
+            "通知"
+        ]
+    }
+}
