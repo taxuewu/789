@@ -49,6 +49,11 @@
             "点赞"
         ]
     },
+    "挑战完毕": {
+        "recognition": "OCR",
+        "expected": "挑战完毕",
+        "action": "Click"
+    },
     "识别团队战": {
         "recognition": "OCR",
         "expected": "挑战团队战吧",

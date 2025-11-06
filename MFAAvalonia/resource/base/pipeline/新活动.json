@@ -153,10 +153,9 @@
         ]
     },
     "进入活动扫荡关卡": {
-        "recognition": "OCR",
-        "expected": [
-            "扫荡",
-            "司汤"
+        "recognition": "FeatureMatch",
+        "template": [
+            "活动//扫荡.png"
         ],
         "action": "Click",
         "next": [
@@ -222,6 +221,7 @@
         ],
         "action": "Click",
         "post_delay": 1000,
+        "rate_limit": 1000,
         "next": [
             "识别无挑战次数"
         ],
@@ -229,7 +229,8 @@
             "识别团队战",
             "小框确认",
             "关闭",
-            "取消"
+            "取消",
+            "挑战完毕"
         ]
     },
     "识别无挑战次数": {
