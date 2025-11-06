@@ -155,9 +155,15 @@
         },
         {
           "name": "全刷",
-          " pipeline_override": {
+          "pipeline_override": {
             "活动普通关卡扫荡": {
               "recognition": "OCR",
+              "roi": [
+                1153,
+                404,
+                64,
+                81
+              ],
               "expected": "MAX",
               "action": "Click",
               "post_delay": 1000
