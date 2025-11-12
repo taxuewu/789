@@ -83,14 +83,16 @@
         ]
     },
     "抽取免费10连": {
-        "recognition": "FeatureMatch",
+        "recognition": "OCR",
         "roi": [
-            1055,
-            377,
-            198,
-            162
+            1108,
+            474,
+            98,
+            48
         ],
-        "template": "免费10连抽.png",
+        "expected": [
+            "免费"
+        ],
         "action": "Click",
         "next": [
             "扭蛋抽取"
