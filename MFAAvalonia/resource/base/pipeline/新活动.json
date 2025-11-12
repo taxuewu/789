@@ -158,6 +158,7 @@
             "活动//扫荡.png"
         ],
         "action": "Click",
+        "post_delay": 1000,
         "next": [
             "识别无挑战次数",
             "判断是否困难"
@@ -603,6 +604,9 @@
         "pre_delay": 2000,
         "next": [
             "活动困难boss扫荡"
+        ],
+        "interrupt": [
+            "关闭"
         ]
     },
     "活动困难boss扫荡": {
