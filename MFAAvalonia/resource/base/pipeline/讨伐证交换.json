@@ -1,11 +1,10 @@
 {
     "自动交换": {
-        "recognition": "OCR",
-        "expected": [
-            "讨伐证交换",
-            "试伐证交换",
-            "过伐证交换"
-        ],
+        "recognition": "FeatureMatch",
+        "roi" : [1075,530,82,76],
+        "template": [
+                "活动//讨伐证.png"
+              ],
         "action": "Click",
         "next": [
             "识别交换页面"
